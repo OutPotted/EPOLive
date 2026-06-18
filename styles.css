@@ -729,12 +729,17 @@ h3 {
   z-index: 1;
 }
 
-.university-card button {
+.university-link {
+  align-items: center;
   background: #eef4ff;
+  border-radius: 999px;
   color: var(--blue);
+  display: inline-flex;
+  font-weight: 900;
+  justify-content: center;
   margin-top: 8px;
   padding: 11px 14px;
-  border-radius: 999px;
+  text-decoration: none;
   transition: transform 220ms ease, background 220ms ease, color 220ms ease;
 }
 
@@ -792,8 +797,8 @@ h3 {
   transform: translateZ(70px) scale(1.1);
 }
 
-.university-card:hover button,
-.university-card.is-active button {
+.university-card:hover .university-link,
+.university-card.is-active .university-link {
   background: var(--blue);
   color: var(--white);
   transform: translateX(4px);
