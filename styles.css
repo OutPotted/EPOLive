@@ -739,8 +739,10 @@ h3 {
   justify-content: center;
   margin-top: 8px;
   padding: 11px 14px;
+  position: relative;
   text-decoration: none;
   transition: transform 220ms ease, background 220ms ease, color 220ms ease;
+  z-index: 5;
 }
 
 .university-card::before {
@@ -752,6 +754,7 @@ h3 {
   left: 0;
   opacity: 0;
   position: absolute;
+  pointer-events: none;
   right: 0;
   top: 0;
   transition: opacity 260ms ease;
@@ -765,6 +768,7 @@ h3 {
   left: -120%;
   opacity: 0;
   position: absolute;
+  pointer-events: none;
   top: -30%;
   transform: rotate(18deg);
   transition: left 520ms ease, opacity 260ms ease;

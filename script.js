@@ -603,7 +603,8 @@ document.querySelectorAll(".university-card").forEach((card) => {
     card.classList.remove("is-hovered");
   });
 
-  card.addEventListener("click", () => {
+  card.addEventListener("click", (event) => {
+    if (event.target.closest(".university-link")) return;
     const wasActive = card.classList.contains("is-active");
     document.querySelectorAll(".university-card").forEach((item) => item.classList.remove("is-active"));
     universityGrid.classList.toggle("has-active", !wasActive);
