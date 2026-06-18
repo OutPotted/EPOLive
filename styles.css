@@ -109,9 +109,9 @@ button {
 
 .brand img {
   display: block;
-  height: 48px;
+  height: 58px;
   object-fit: contain;
-  width: 198px;
+  width: 78px;
 }
 
 .nav-links {
@@ -1249,11 +1249,8 @@ textarea {
 }
 
 .site-footer img {
-  background: var(--white);
-  border-radius: 18px;
   margin-bottom: 14px;
-  padding: 12px;
-  width: 250px;
+  width: 150px;
 }
 
 .site-footer p,
@@ -1551,8 +1548,8 @@ textarea {
   }
 
   .brand img {
-    height: 40px;
-    width: 166px;
+    height: 50px;
+    width: 68px;
   }
 
   .nav-cta {
