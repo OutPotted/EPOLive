@@ -700,10 +700,10 @@ h3 {
   overflow: hidden;
   opacity: 1;
   position: relative;
+  translate: 0 0;
   transform: translateY(0);
   transform-style: preserve-3d;
   transition:
-    opacity 520ms ease,
     transform 520ms cubic-bezier(0.2, 0.9, 0.2, 1),
     box-shadow 320ms ease,
     border-color 320ms ease,
@@ -712,46 +712,79 @@ h3 {
 
 .university-grid:not(.in-view) .university-card {
   opacity: 0;
-  transform: translateY(54px) scale(0.9);
+  translate: 0 54px;
 }
 
 .university-grid.in-view .university-card {
-  animation: universityCardEnter 780ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  opacity: 1;
 }
 
 .university-grid.in-view .university-card:nth-child(1) {
-  animation-delay: 80ms;
+  animation: universityEnterLeft 900ms 80ms cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 .university-grid.in-view .university-card:nth-child(2) {
-  animation-delay: 260ms;
+  animation: universityEnterCenter 900ms 260ms cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 .university-grid.in-view .university-card:nth-child(3) {
-  animation-delay: 440ms;
+  animation: universityEnterRight 900ms 440ms cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 .university-grid.reveal-finished .university-card {
-  animation: none;
   opacity: 1;
-  transform: translateY(0);
+  translate: 0 0;
   transition-delay: 0ms;
 }
 
-@keyframes universityCardEnter {
+@keyframes universityEnterLeft {
   0% {
     opacity: 0;
-    transform: translateY(54px) scale(0.9) rotateX(8deg);
+    translate: -90px 52px;
   }
 
-  70% {
+  72% {
     opacity: 1;
-    transform: translateY(-10px) scale(1.015) rotateX(0);
+    translate: 10px -8px;
   }
 
   100% {
     opacity: 1;
-    transform: translateY(0) scale(1) rotateX(0);
+    translate: 0 0;
+  }
+}
+
+@keyframes universityEnterCenter {
+  0% {
+    opacity: 0;
+    translate: 0 90px;
+  }
+
+  72% {
+    opacity: 1;
+    translate: 0 -14px;
+  }
+
+  100% {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+@keyframes universityEnterRight {
+  0% {
+    opacity: 0;
+    translate: 90px 52px;
+  }
+
+  72% {
+    opacity: 1;
+    translate: -10px -8px;
+  }
+
+  100% {
+    opacity: 1;
+    translate: 0 0;
   }
 }
 
