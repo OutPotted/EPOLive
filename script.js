@@ -511,6 +511,16 @@ document.querySelectorAll(".language-options button").forEach((button) => {
 const universityGrid = $(".university-grid");
 
 document.querySelectorAll(".university-card").forEach((card) => {
+  card.addEventListener("mouseenter", () => {
+    universityGrid.classList.add("hover-active");
+    card.classList.add("is-hovered");
+  });
+
+  card.addEventListener("mouseleave", () => {
+    universityGrid.classList.remove("hover-active");
+    card.classList.remove("is-hovered");
+  });
+
   card.addEventListener("click", () => {
     const wasActive = card.classList.contains("is-active");
     document.querySelectorAll(".university-card").forEach((item) => item.classList.remove("is-active"));
@@ -537,18 +547,21 @@ const revealObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        entry.target.classList.add("in-view");
-        if (entry.target.classList.contains("reveal-universities")) {
-          window.setTimeout(() => entry.target.classList.add("reveal-finished"), 950);
-        }
+        window.requestAnimationFrame(() => {
+          entry.target.classList.add("in-view");
+          if (entry.target.classList.contains("reveal-universities")) {
+            window.setTimeout(() => entry.target.classList.add("reveal-finished"), 950);
+          }
+        });
         revealObserver.unobserve(entry.target);
       }
     });
   },
-  { threshold: 0.25 },
+  { threshold: 0.12, rootMargin: "0px 0px -8% 0px" },
 );
 
 document.querySelectorAll(".reveal-process, .reveal-stories, .reveal-universities").forEach((section) => {
+  section.classList.remove("in-view", "reveal-finished");
   revealObserver.observe(section);
 });
 
@@ -572,27 +585,14 @@ $("#chatForm").addEventListener("submit", (event) => {
 
 const dot = $(".cursor-dot");
 const ring = $(".cursor-ring");
-let mouseX = 0;
-let mouseY = 0;
-let ringX = 0;
-let ringY = 0;
 
 window.addEventListener("mousemove", (event) => {
-  mouseX = event.clientX;
-  mouseY = event.clientY;
-  dot.style.transform = `translate(${mouseX}px, ${mouseY}px) translate(-50%, -50%)`;
-});
+  const position = `translate(${event.clientX}px, ${event.clientY}px) translate(-50%, -50%)`;
+  dot.style.transform = position;
+  ring.style.transform = position;
+}, { passive: true });
 
 document.querySelectorAll("a, button, input, textarea").forEach((element) => {
   element.addEventListener("mouseenter", () => ring.classList.add("active"));
   element.addEventListener("mouseleave", () => ring.classList.remove("active"));
 });
-
-function animateCursor() {
-  ringX += (mouseX - ringX) * 0.18;
-  ringY += (mouseY - ringY) * 0.18;
-  ring.style.transform = `translate(${ringX}px, ${ringY}px) translate(-50%, -50%)`;
-  requestAnimationFrame(animateCursor);
-}
-
-animateCursor();
