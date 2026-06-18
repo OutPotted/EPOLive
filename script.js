@@ -631,9 +631,6 @@ const revealObserver = new IntersectionObserver(
       if (entry.isIntersecting) {
         window.requestAnimationFrame(() => {
           entry.target.classList.add("in-view");
-          if (entry.target.classList.contains("reveal-universities")) {
-            window.setTimeout(() => entry.target.classList.add("reveal-finished"), 1450);
-          }
         });
         revealObserver.unobserve(entry.target);
       }
@@ -642,21 +639,10 @@ const revealObserver = new IntersectionObserver(
   { threshold: 0.12, rootMargin: "0px 0px -8% 0px" },
 );
 
-document.querySelectorAll(".reveal-process, .reveal-stories, .reveal-universities").forEach((section) => {
+document.querySelectorAll(".reveal-process, .reveal-stories").forEach((section) => {
   section.classList.remove("in-view", "reveal-finished");
   revealObserver.observe(section);
 });
-
-window.setTimeout(() => {
-  const universitySection = $(".reveal-universities");
-  if (universitySection && !universitySection.classList.contains("in-view")) {
-    const rect = universitySection.getBoundingClientRect();
-    if (rect.top < window.innerHeight * 1.35) {
-      universitySection.classList.add("in-view");
-      window.setTimeout(() => universitySection.classList.add("reveal-finished"), 1450);
-    }
-  }
-}, 250);
 
 $("#chatToggle").addEventListener("click", toggleChat);
 $("#closeChat").addEventListener("click", () => {
