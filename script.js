@@ -44,6 +44,22 @@ $("#exploreUniversities").addEventListener("click", () => {
   document.querySelector("#universities").scrollIntoView({ behavior: "smooth" });
 });
 
+const revealObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("in-view");
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  },
+  { threshold: 0.25 },
+);
+
+document.querySelectorAll(".reveal-process, .reveal-stories, .reveal-universities").forEach((section) => {
+  revealObserver.observe(section);
+});
+
 $("#chatToggle").addEventListener("click", toggleChat);
 $("#closeChat").addEventListener("click", () => {
   $("#chatbox").hidden = true;
