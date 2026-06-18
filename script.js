@@ -508,6 +508,24 @@ document.querySelectorAll(".language-options button").forEach((button) => {
   });
 });
 
+const universityGrid = $(".university-grid");
+
+document.querySelectorAll(".university-card").forEach((card) => {
+  card.addEventListener("click", () => {
+    const wasActive = card.classList.contains("is-active");
+    document.querySelectorAll(".university-card").forEach((item) => item.classList.remove("is-active"));
+    universityGrid.classList.toggle("has-active", !wasActive);
+    if (!wasActive) card.classList.add("is-active");
+  });
+});
+
+document.addEventListener("click", (event) => {
+  if (!universityGrid.contains(event.target)) {
+    universityGrid.classList.remove("has-active");
+    document.querySelectorAll(".university-card").forEach((item) => item.classList.remove("is-active"));
+  }
+});
+
 document.addEventListener("click", (event) => {
   if (!languageMenu.contains(event.target)) {
     languageMenu.classList.remove("open");
