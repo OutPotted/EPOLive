@@ -384,7 +384,9 @@ function translateTextNodes(lang) {
     }
     const source = textNodeSource.get(node);
     const translated = translatedText(source, lang);
-    node.nodeValue = node.nodeValue.replace(source, translated);
+    const leading = node.nodeValue.match(/^\s*/)?.[0] || "";
+    const trailing = node.nodeValue.match(/\s*$/)?.[0] || "";
+    node.nodeValue = `${leading}${translated}${trailing}`;
   });
 }
 
@@ -518,6 +520,9 @@ const revealObserver = new IntersectionObserver(
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         entry.target.classList.add("in-view");
+        if (entry.target.classList.contains("reveal-universities")) {
+          window.setTimeout(() => entry.target.classList.add("reveal-finished"), 950);
+        }
         revealObserver.unobserve(entry.target);
       }
     });

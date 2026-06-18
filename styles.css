@@ -715,6 +715,10 @@ h3 {
   transition-delay: 300ms;
 }
 
+.university-grid.reveal-finished .university-card {
+  transition-delay: 0ms;
+}
+
 .university-card img {
   aspect-ratio: 1.35;
   background: var(--white);
@@ -754,7 +758,8 @@ h3 {
 .university-card:hover {
   border-color: rgba(0, 109, 255, 0.45);
   box-shadow: 0 34px 90px rgba(7, 25, 54, 0.18);
-  transition-delay: 0ms;
+  transition-delay: 0ms !important;
+  transition-duration: 240ms, 260ms, 260ms, 260ms;
   transform: translateY(-16px) rotateX(4deg);
 }
 
