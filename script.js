@@ -44,6 +44,31 @@ $("#exploreUniversities").addEventListener("click", () => {
   document.querySelector("#universities").scrollIntoView({ behavior: "smooth" });
 });
 
+const languageMenu = $(".language-menu");
+const languageTrigger = $(".language-trigger");
+
+languageTrigger.addEventListener("click", () => {
+  const isOpen = languageMenu.classList.toggle("open");
+  languageTrigger.setAttribute("aria-expanded", String(isOpen));
+});
+
+document.querySelectorAll(".language-options button").forEach((button) => {
+  button.addEventListener("click", () => {
+    document.querySelectorAll(".language-options button").forEach((item) => item.classList.remove("active"));
+    button.classList.add("active");
+    languageTrigger.querySelector("span:last-child").textContent = button.textContent;
+    languageMenu.classList.remove("open");
+    languageTrigger.setAttribute("aria-expanded", "false");
+  });
+});
+
+document.addEventListener("click", (event) => {
+  if (!languageMenu.contains(event.target)) {
+    languageMenu.classList.remove("open");
+    languageTrigger.setAttribute("aria-expanded", "false");
+  }
+});
+
 const revealObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {

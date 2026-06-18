@@ -134,6 +134,89 @@ button {
   color: var(--blue);
 }
 
+.header-actions {
+  align-items: center;
+  display: flex;
+  gap: 12px;
+}
+
+.language-menu {
+  position: relative;
+}
+
+.language-trigger {
+  align-items: center;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--ink);
+  display: inline-flex;
+  gap: 8px;
+  min-height: 44px;
+  padding: 10px 14px;
+}
+
+.language-trigger::after {
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 5px solid var(--ink);
+  content: "";
+  margin-left: 2px;
+}
+
+.language-globe {
+  align-items: center;
+  color: #0e9f6e;
+  display: inline-flex;
+  font-size: 23px;
+  font-weight: 900;
+  height: 24px;
+  justify-content: center;
+  width: 24px;
+}
+
+.language-options {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  box-shadow: 0 22px 60px rgba(7, 25, 54, 0.18);
+  display: grid;
+  left: 0;
+  min-width: 154px;
+  opacity: 0;
+  overflow: hidden;
+  padding: 8px;
+  pointer-events: none;
+  position: absolute;
+  top: calc(100% + 10px);
+  transform: translateY(-8px);
+  transition: opacity 180ms ease, transform 180ms ease;
+  z-index: 80;
+}
+
+.language-menu:hover .language-options,
+.language-menu:focus-within .language-options,
+.language-menu.open .language-options {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.language-options button {
+  background: transparent;
+  border-radius: 12px;
+  color: var(--ink);
+  justify-content: flex-start;
+  min-height: 42px;
+  padding: 10px 16px;
+  text-align: left;
+}
+
+.language-options button:hover,
+.language-options button.active {
+  background: var(--lavender);
+}
+
 button,
 .primary-action,
 .secondary-action,
@@ -720,7 +803,7 @@ h3 {
   box-shadow: 0 18px 48px rgba(16, 24, 39, 0.08);
   opacity: 0;
   transform: translateY(42px) scale(0.94);
-  transition: opacity 540ms ease, transform 540ms cubic-bezier(0.2, 0.9, 0.2, 1);
+  transition: opacity 1100ms ease, transform 1100ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .process-line div:not(:last-child)::after {
@@ -772,23 +855,23 @@ h3 {
 }
 
 .process-line.in-view div:nth-child(1) {
-  transition-delay: 80ms;
+  transition-delay: 180ms;
 }
 
 .process-line.in-view div:nth-child(2) {
-  transition-delay: 220ms;
+  transition-delay: 680ms;
 }
 
 .process-line.in-view div:nth-child(3) {
-  transition-delay: 360ms;
+  transition-delay: 1180ms;
 }
 
 .process-line.in-view div:nth-child(4) {
-  transition-delay: 500ms;
+  transition-delay: 1680ms;
 }
 
 .process-line.in-view div:nth-child(5) {
-  transition-delay: 640ms;
+  transition-delay: 2180ms;
 }
 
 .application-section {
@@ -1260,6 +1343,24 @@ textarea {
     font-size: 12px;
     min-height: 40px;
     padding: 9px 11px;
+  }
+
+  .header-actions {
+    gap: 8px;
+  }
+
+  .language-trigger {
+    min-height: 40px;
+    padding: 8px 10px;
+  }
+
+  .language-trigger span:last-child {
+    display: none;
+  }
+
+  .language-options {
+    left: auto;
+    right: 0;
   }
 
   h1 {
