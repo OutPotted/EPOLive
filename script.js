@@ -592,6 +592,14 @@ document.querySelectorAll(".language-options button").forEach((button) => {
 
 const universityGrid = $(".university-grid");
 
+document.querySelectorAll(".university-link").forEach((link) => {
+  link.addEventListener("click", (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    window.location.assign(link.href);
+  });
+});
+
 document.querySelectorAll(".university-card").forEach((card) => {
   card.addEventListener("mouseenter", () => {
     universityGrid.classList.add("hover-active");
