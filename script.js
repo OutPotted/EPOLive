@@ -430,6 +430,88 @@ function playLanguageIntro(lang) {
 
 function answerQuestion(question) {
   const text = question.toLowerCase();
+  const asksWhatIsEduPedia =
+    (text.includes("what") || text.includes("tell me") || text.includes("explain")) &&
+    (text.includes("edu pedia") || text.includes("edupedia"));
+  const asksAboutFees = text.includes("fee") || text.includes("cost") || text.includes("price") || text.includes("tuition");
+  const asksAboutMbbs = text.includes("mbbs") || text.includes("medicine") || text.includes("medical");
+
+  const detailedAnswers = {
+    en: {
+      about:
+        "Edu Pedia Overseas is an education guidance service for students who want to study MBBS or medicine abroad. It helps students understand university options, admission requirements, documents, fees, visa steps, travel planning, and support after arrival. The goal is to make the journey clearer from the first question until the student reaches university. For personal guidance or direct admission queries, students can contact Edu Pedia on WhatsApp at +995 579 263 930.",
+      mbbs:
+        "Edu Pedia supports students planning to study MBBS abroad by helping them compare universities, understand eligibility and documents, plan fees, and move through admission, visa, and travel steps. The exact requirements depend on the university and country, so the best next step is to message Edu Pedia on WhatsApp for guidance based on your situation.",
+      fees:
+        "MBBS fees vary by university, country, academic year, accommodation, and other living costs. Edu Pedia can provide a clearer breakdown for the university you are considering. Message +995 579 263 930 on WhatsApp and include the university or country you are interested in.",
+      admission:
+        "The admission journey has five main stages: first, contact Edu Pedia on WhatsApp; second, review suitable countries and universities; third, prepare and submit the required documents; fourth, complete visa and travel planning; and fifth, travel abroad with support for your first steps. Requirements can differ, so personal guidance is recommended.",
+      universities:
+        "The website currently presents three medical university options: BAU International University Batumi in Georgia, KMI Medical Institute in Uzbekistan, and European University in Georgia. Edu Pedia can explain the admission route, documentation, and available guidance for each option.",
+      visa:
+        "Visa support includes understanding the required documents, preparing for the application process, and planning the next travel steps after admission. Visa rules depend on your nationality and destination, so contact Edu Pedia on WhatsApp for guidance relevant to your case.",
+      whatsapp:
+        "You can contact Edu Pedia Overseas directly on WhatsApp at +995 579 263 930. The green WhatsApp button on this page opens a ready message for direct admission support, university questions, fees, visas, and travel guidance.",
+    },
+    hi: {
+      about:
+        "Edu Pedia Overseas उन छात्रों के लिए शिक्षा मार्गदर्शन सेवा है जो विदेश में MBBS या चिकित्सा की पढ़ाई करना चाहते हैं। यह विश्वविद्यालय विकल्प, प्रवेश आवश्यकताएं, दस्तावेज़, फीस, वीजा प्रक्रिया, यात्रा योजना और पहुंचने के बाद सहायता समझने में मदद करता है। व्यक्तिगत मार्गदर्शन के लिए WhatsApp पर +995 579 263 930 से संपर्क करें।",
+      mbbs:
+        "Edu Pedia छात्रों को विदेश में MBBS के लिए विश्वविद्यालयों की तुलना, पात्रता, दस्तावेज़, फीस, प्रवेश, वीजा और यात्रा चरण समझने में मदद करता है। सही जानकारी आपके चुने हुए देश और विश्वविद्यालय पर निर्भर करती है।",
+      fees:
+        "MBBS की फीस विश्वविद्यालय, देश, शैक्षणिक वर्ष, आवास और रहने के खर्च के अनुसार बदलती है। स्पष्ट विवरण के लिए WhatsApp पर +995 579 263 930 पर विश्वविद्यालय या देश का नाम भेजें।",
+      admission:
+        "प्रवेश यात्रा के पांच मुख्य चरण हैं: WhatsApp पर संपर्क, विश्वविद्यालय चयन, दस्तावेज़ तैयारी, वीजा और यात्रा योजना, और विदेश पहुंचना। व्यक्तिगत आवश्यकताएं अलग हो सकती हैं।",
+      universities:
+        "वेबसाइट पर BAU International University Batumi, KMI Medical Institute और European University प्रस्तुत हैं। Edu Pedia प्रत्येक विकल्प की प्रवेश प्रक्रिया समझा सकता है।",
+      visa:
+        "वीजा सहायता में जरूरी दस्तावेज़ समझना, आवेदन की तैयारी और प्रवेश के बाद यात्रा योजना शामिल है। नियम राष्ट्रीयता और देश के अनुसार बदलते हैं।",
+      whatsapp:
+        "Edu Pedia Overseas से सीधे WhatsApp पर +995 579 263 930 पर संपर्क करें।",
+    },
+    ka: {
+      about:
+        "Edu Pedia Overseas არის საგანმანათლებლო საკონსულტაციო სერვისი სტუდენტებისთვის, რომლებსაც სურთ საზღვარგარეთ MBBS-ის ან მედიცინის სწავლა. ის ეხმარება უნივერსიტეტის არჩევაში, მიღების მოთხოვნებში, დოკუმენტებში, საფასურში, ვიზაში, მგზავრობასა და ჩასვლის შემდგომ მხარდაჭერაში. პირადი კონსულტაციისთვის მოგვწერეთ WhatsApp-ზე: +995 579 263 930.",
+      mbbs:
+        "Edu Pedia ეხმარება სტუდენტებს საზღვარგარეთ MBBS-ის დაგეგმვაში, უნივერსიტეტების შედარებაში, მოთხოვნების, დოკუმენტების, საფასურის, ვიზისა და მგზავრობის ეტაპების გაგებაში.",
+      fees:
+        "MBBS-ის საფასური დამოკიდებულია უნივერსიტეტზე, ქვეყანაზე, სასწავლო წელზე, საცხოვრებელსა და ცხოვრების ხარჯებზე. დეტალებისთვის მოგვწერეთ WhatsApp-ზე +995 579 263 930.",
+      admission:
+        "მიღების გზა მოიცავს WhatsApp კონტაქტს, უნივერსიტეტის არჩევას, დოკუმენტების მომზადებას, ვიზისა და მგზავრობის დაგეგმვას და საზღვარგარეთ ჩასვლას.",
+      universities:
+        "ვებსაიტზე წარმოდგენილია BAU International University Batumi, KMI Medical Institute და European University.",
+      visa:
+        "ვიზის მხარდაჭერა მოიცავს საჭირო დოკუმენტების გაგებას, განაცხადის მომზადებას და მგზავრობის შემდეგი ნაბიჯების დაგეგმვას.",
+      whatsapp:
+        "Edu Pedia Overseas-ს დაუკავშირდით WhatsApp-ზე ნომერზე +995 579 263 930.",
+    },
+    de: {
+      about:
+        "Edu Pedia Overseas ist ein Beratungsdienst für Studierende, die MBBS oder Medizin im Ausland studieren möchten. Die Unterstützung umfasst Universitätswahl, Zulassungsvoraussetzungen, Dokumente, Gebühren, Visa, Reiseplanung und Hilfe nach der Ankunft. Für persönliche Beratung kontaktiere Edu Pedia über WhatsApp unter +995 579 263 930.",
+      mbbs:
+        "Edu Pedia unterstützt Studierende bei der Planung eines MBBS-Studiums im Ausland, beim Vergleich von Universitäten sowie beim Verständnis von Voraussetzungen, Dokumenten, Gebühren, Visa und Reise.",
+      fees:
+        "MBBS-Gebühren unterscheiden sich je nach Universität, Land, Studienjahr, Unterkunft und Lebenshaltungskosten. Für eine genaue Übersicht schreibe an +995 579 263 930.",
+      admission:
+        "Der Zulassungsweg besteht aus fünf Schritten: WhatsApp-Kontakt, Universitätsauswahl, Dokumentenvorbereitung, Visa- und Reiseplanung sowie Ankunft im Ausland.",
+      universities:
+        "Die Website zeigt BAU International University Batumi, KMI Medical Institute und European University.",
+      visa:
+        "Die Visa-Unterstützung umfasst erforderliche Dokumente, Vorbereitung des Antrags und Planung der Reise nach der Zulassung.",
+      whatsapp:
+        "Kontaktiere Edu Pedia Overseas direkt über WhatsApp unter +995 579 263 930.",
+    },
+  };
+  const detailed = detailedAnswers[currentLanguage] || detailedAnswers.en;
+
+  if (asksWhatIsEduPedia) return detailed.about;
+  if (asksAboutFees) return detailed.fees;
+  if (asksAboutMbbs) return detailed.mbbs;
+  if (text.includes("how") && (text.includes("admission") || text.includes("apply"))) return detailed.admission;
+  if (text.includes("which") && (text.includes("university") || text.includes("universities"))) return detailed.universities;
+  if (text.includes("visa")) return detailed.visa;
+  if (text.includes("whatsapp") || text.includes("phone") || text.includes("contact")) return detailed.whatsapp;
+
   const answers = {
     en: {
       admission: "For direct admission support, tap the WhatsApp button and message Edu Pedia at +995 579 263 930.",
@@ -570,17 +652,36 @@ $("#closeChat").addEventListener("click", () => {
   $("#chatbox").hidden = true;
 });
 
-$("#chatForm").addEventListener("submit", (event) => {
-  event.preventDefault();
-  const input = $("#chatInput");
-  const question = input.value.trim();
+function sendChatQuestion(question) {
   if (!question) return;
 
   const messages = $("#chatMessages");
   messages.insertAdjacentHTML("beforeend", `<p class="user-message">${escapeHtml(question)}</p>`);
-  messages.insertAdjacentHTML("beforeend", `<p class="bot-message">${escapeHtml(answerQuestion(question))}</p>`);
-  input.value = "";
+  messages.insertAdjacentHTML(
+    "beforeend",
+    '<p class="bot-message typing-message" aria-label="AI is typing"><span></span><span></span><span></span></p>',
+  );
   messages.scrollTop = messages.scrollHeight;
+
+  window.setTimeout(() => {
+    messages.querySelector(".typing-message")?.remove();
+    messages.insertAdjacentHTML("beforeend", `<p class="bot-message">${escapeHtml(answerQuestion(question))}</p>`);
+    messages.scrollTop = messages.scrollHeight;
+  }, 650);
+}
+
+$("#chatForm").addEventListener("submit", (event) => {
+  event.preventDefault();
+  const input = $("#chatInput");
+  const question = input.value.trim();
+  input.value = "";
+  sendChatQuestion(question);
+});
+
+document.querySelectorAll(".chat-suggestions button").forEach((button) => {
+  button.addEventListener("click", () => {
+    sendChatQuestion(button.textContent.trim());
+  });
 });
 
 const dot = $(".cursor-dot");
