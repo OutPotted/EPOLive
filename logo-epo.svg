@@ -1,32 +1,32 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 180" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 150" role="img" aria-labelledby="title desc">
   <title id="title">Edu Pedia Overseas</title>
-  <desc id="desc">Clean EPO Edu Pedia Overseas logo</desc>
+  <desc id="desc">Clean horizontal EPO Edu Pedia Overseas logo</desc>
   <defs>
     <linearGradient id="blue" x1="0" x2="1" y1="0" y2="1">
-      <stop offset="0" stop-color="#1aa0ff"/>
-      <stop offset="0.5" stop-color="#0866e8"/>
-      <stop offset="1" stop-color="#04338d"/>
+      <stop offset="0" stop-color="#179bff"/>
+      <stop offset="0.55" stop-color="#0866e8"/>
+      <stop offset="1" stop-color="#04348f"/>
     </linearGradient>
     <linearGradient id="ink" x1="0" x2="1" y1="0" y2="1">
       <stop offset="0" stop-color="#26364c"/>
       <stop offset="1" stop-color="#101827"/>
     </linearGradient>
   </defs>
-  <rect width="760" height="180" rx="26" fill="#fff"/>
-  <g transform="translate(28 28)">
-    <path fill="url(#ink)" d="M0 0h110l-14 25H34v27h57L77 77H34v27h68l-15 26H0z"/>
-    <path fill="url(#blue)" d="M139 0h82c35 0 59 22 59 53 0 32-24 54-59 54h-45v23h-35V76h76c17 0 27-9 27-23s-10-23-27-23h-92z"/>
-    <path fill="url(#ink)" d="M364-2c50 0 86 31 86 67 0 38-36 68-86 68s-85-30-85-68c0-36 35-67 85-67Zm0 30c-28 0-48 16-48 37 0 22 20 38 48 38 29 0 49-16 49-38 0-21-20-37-49-37Z"/>
-    <circle cx="360" cy="85" r="24" fill="url(#blue)"/>
-    <path d="M337 85h46M360 62v46" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
-    <ellipse cx="360" cy="85" rx="11" ry="23" fill="none" stroke="#fff" stroke-width="4"/>
-    <ellipse cx="360" cy="85" rx="22" ry="9" fill="none" stroke="#fff" stroke-width="4"/>
-    <path d="M291 107c50 30 113 24 162-18-34 54-119 65-173 32 2-6 5-11 11-14Z" fill="url(#blue)"/>
+
+  <g transform="translate(10 16)">
+    <path fill="url(#ink)" d="M0 0h104L91 22H33v25h54L73 70H33v26h65l-14 23H0z"/>
+    <path fill="url(#blue)" d="M132 0h78c33 0 56 21 56 50 0 30-23 51-56 51h-43v18h-33V72h72c16 0 26-8 26-22s-10-22-26-22h-87z"/>
+    <path fill="url(#ink)" d="M346-1c48 0 82 29 82 64 0 36-34 65-82 65-47 0-81-29-81-65 0-35 34-64 81-64Zm0 29c-27 0-46 15-46 35 0 21 19 36 46 36 28 0 47-15 47-36 0-20-19-35-47-35Z"/>
+    <circle cx="344" cy="82" r="22" fill="url(#blue)"/>
+    <path d="M323 82h42M344 61v42" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+    <ellipse cx="344" cy="82" rx="10" ry="21" fill="none" stroke="#fff" stroke-width="4"/>
+    <ellipse cx="344" cy="82" rx="20" ry="8" fill="none" stroke="#fff" stroke-width="4"/>
+    <path d="M277 102c47 29 107 22 154-17-32 51-113 61-164 30 2-6 5-10 10-13Z" fill="url(#blue)"/>
   </g>
-  <g transform="translate(520 48)" font-family="Inter, Arial, sans-serif">
-    <text x="0" y="42" font-size="34" font-weight="900" fill="#111b2d" letter-spacing="3">EDU PEDIA</text>
-    <text x="0" y="82" font-size="30" font-weight="800" fill="#0866e8" letter-spacing="5">OVERSEAS</text>
-    <path d="M0 101h164" stroke="#0866e8" stroke-width="4" stroke-linecap="round"/>
-    <text x="0" y="130" font-size="13" font-weight="800" fill="#637087" letter-spacing="4">EDUCATION BEYOND BORDERS</text>
+
+  <g transform="translate(458 40)" font-family="Inter, Arial, sans-serif">
+    <text x="0" y="28" font-size="24" font-weight="900" fill="#111b2d" letter-spacing="2">EDU PEDIA</text>
+    <text x="0" y="60" font-size="22" font-weight="900" fill="#0866e8" letter-spacing="4">OVERSEAS</text>
+    <path d="M0 75h126" stroke="#0866e8" stroke-width="4" stroke-linecap="round"/>
   </g>
 </svg>
