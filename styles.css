@@ -339,11 +339,12 @@ button:hover,
     var(--paper);
   color: var(--ink);
   display: grid;
-  gap: 44px;
-  grid-template-columns: minmax(0, 0.95fr) minmax(340px, 1.05fr);
-  min-height: calc(100vh - 72px);
+  align-items: center;
+  gap: clamp(24px, 4vw, 42px);
+  grid-template-columns: minmax(0, 1.05fr) minmax(300px, 0.95fr);
+  min-height: auto;
   overflow: hidden;
-  padding: clamp(48px, 7vw, 96px) clamp(16px, 5vw, 72px);
+  padding: clamp(34px, 5vw, 66px) clamp(16px, 5vw, 72px);
   position: relative;
 }
 
@@ -405,7 +406,7 @@ p {
 }
 
 h1 {
-  font-size: clamp(46px, 6.6vw, 88px);
+  font-size: clamp(42px, 5.5vw, 74px);
   letter-spacing: 0;
   line-height: 0.95;
   margin-bottom: 22px;
@@ -425,8 +426,8 @@ h3 {
 
 .hero-subtitle {
   color: var(--muted);
-  font-size: 20px;
-  line-height: 1.62;
+  font-size: 18px;
+  line-height: 1.55;
 }
 
 .hero-actions,
@@ -472,12 +473,14 @@ h3 {
 
 .hero-media {
   align-self: center;
+  justify-self: end;
+  max-width: 520px;
   position: relative;
   z-index: 2;
 }
 
 .hero-media img {
-  aspect-ratio: 1.05;
+  aspect-ratio: 1.08;
   background: var(--white);
   border: 10px solid var(--white);
   border-radius: 34px;
@@ -494,13 +497,13 @@ h3 {
   color: var(--ink);
   display: grid;
   gap: 2px;
-  padding: 16px 18px;
+  padding: 13px 16px;
   position: absolute;
   backdrop-filter: blur(14px);
 }
 
 .media-card strong {
-  font-size: 28px;
+  font-size: 24px;
 }
 
 .media-card span {
@@ -1449,6 +1452,12 @@ textarea {
     min-height: auto;
   }
 
+  .hero-media {
+    justify-self: center;
+    max-width: 560px;
+    width: 100%;
+  }
+
   .process-line div:not(:last-child)::after {
     content: "";
   }
@@ -1516,7 +1525,19 @@ textarea {
   }
 
   h1 {
-    font-size: 42px;
+    font-size: 38px;
+  }
+
+  .hero-media {
+    max-width: 420px;
+  }
+
+  .media-card {
+    padding: 10px 12px;
+  }
+
+  .media-card strong {
+    font-size: 20px;
   }
 
   .section {
