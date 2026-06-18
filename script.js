@@ -632,7 +632,7 @@ const revealObserver = new IntersectionObserver(
         window.requestAnimationFrame(() => {
           entry.target.classList.add("in-view");
           if (entry.target.classList.contains("reveal-universities")) {
-            window.setTimeout(() => entry.target.classList.add("reveal-finished"), 950);
+            window.setTimeout(() => entry.target.classList.add("reveal-finished"), 1450);
           }
         });
         revealObserver.unobserve(entry.target);
@@ -646,6 +646,17 @@ document.querySelectorAll(".reveal-process, .reveal-stories, .reveal-universitie
   section.classList.remove("in-view", "reveal-finished");
   revealObserver.observe(section);
 });
+
+window.setTimeout(() => {
+  const universitySection = $(".reveal-universities");
+  if (universitySection && !universitySection.classList.contains("in-view")) {
+    const rect = universitySection.getBoundingClientRect();
+    if (rect.top < window.innerHeight * 1.35) {
+      universitySection.classList.add("in-view");
+      window.setTimeout(() => universitySection.classList.add("reveal-finished"), 1450);
+    }
+  }
+}, 250);
 
 $("#chatToggle").addEventListener("click", toggleChat);
 $("#closeChat").addEventListener("click", () => {

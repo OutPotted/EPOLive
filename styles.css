@@ -698,9 +698,9 @@ h3 {
 .university-card {
   backface-visibility: hidden;
   overflow: hidden;
-  opacity: 0;
+  opacity: 1;
   position: relative;
-  transform: translateY(18px);
+  transform: translateY(0);
   transform-style: preserve-3d;
   transition:
     opacity 520ms ease,
@@ -710,25 +710,49 @@ h3 {
     filter 320ms ease;
 }
 
+.university-grid:not(.in-view) .university-card {
+  opacity: 0;
+  transform: translateY(54px) scale(0.9);
+}
+
 .university-grid.in-view .university-card {
-  opacity: 1;
-  transform: translateY(0);
+  animation: universityCardEnter 780ms cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 .university-grid.in-view .university-card:nth-child(1) {
-  transition-delay: 60ms;
+  animation-delay: 80ms;
 }
 
 .university-grid.in-view .university-card:nth-child(2) {
-  transition-delay: 180ms;
+  animation-delay: 260ms;
 }
 
 .university-grid.in-view .university-card:nth-child(3) {
-  transition-delay: 300ms;
+  animation-delay: 440ms;
 }
 
 .university-grid.reveal-finished .university-card {
+  animation: none;
+  opacity: 1;
+  transform: translateY(0);
   transition-delay: 0ms;
+}
+
+@keyframes universityCardEnter {
+  0% {
+    opacity: 0;
+    transform: translateY(54px) scale(0.9) rotateX(8deg);
+  }
+
+  70% {
+    opacity: 1;
+    transform: translateY(-10px) scale(1.015) rotateX(0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotateX(0);
+  }
 }
 
 .university-card img {
