@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 360" role="img" aria-labelledby="title desc">
+  <title id="title">BAU International University Batumi</title>
+  <desc id="desc">BAU International University Batumi logo</desc>
+  <rect width="520" height="360" rx="28" fill="#ffffff"/>
+  <g fill="#2862b7" font-family="Inter, Arial, sans-serif" text-anchor="middle">
+    <text x="260" y="132" font-size="82" font-weight="900">BAU</text>
+    <text x="260" y="174" font-size="31" font-weight="700">International</text>
+    <text x="260" y="209" font-size="31" font-weight="700">University</text>
+    <path d="M164 232h192" stroke="#2862b7" stroke-width="4" stroke-linecap="round"/>
+    <text x="260" y="281" font-size="43" font-weight="900">Batumi</text>
+  </g>
+</svg>

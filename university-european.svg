@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 360" role="img" aria-labelledby="title desc">
+  <title id="title">European University</title>
+  <desc id="desc">European University logo</desc>
+  <rect width="520" height="360" rx="28" fill="#ffffff"/>
+  <g transform="translate(260 158)" fill="none" stroke="#244f9f">
+    <circle r="118" stroke-width="8"/>
+    <circle r="104" stroke-width="4"/>
+    <ellipse rx="48" ry="110" stroke-width="4"/>
+    <ellipse rx="94" ry="41" stroke-width="4"/>
+    <path d="M-114 0h228M0-112v224" stroke-width="4"/>
+  </g>
+  <path d="M219 74c-28 46-51 127-30 184 13 34 48 44 103 37 22-3 39-8 51-14-33 0-61-6-80-18-37-24-28-80-5-128 12-25 20-47 19-66-16 1-36 3-58 5Z" fill="#244f9f"/>
+  <path d="M286 127h73c18 0 28 12 28 28s-10 28-28 28h-73c-18 0-28-12-28-28s10-28 28-28Zm6 72h73c18 0 28 12 28 28s-10 28-28 28h-73c-18 0-28-12-28-28s10-28 28-28Z" fill="#244f9f"/>
+  <g font-family="Inter, Arial, sans-serif" fill="#244f9f" text-anchor="middle">
+    <text x="260" y="323" font-size="30" font-weight="900">EUROPEAN UNIVERSITY</text>
+  </g>
+</svg>
