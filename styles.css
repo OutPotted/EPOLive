@@ -1302,19 +1302,32 @@ textarea {
 
 .chat-toggle {
   align-items: center;
-  background: linear-gradient(135deg, var(--blue), #003a9f);
+  background: var(--white);
   border: 2px solid rgba(255, 255, 255, 0.85);
   border-radius: 999px;
   bottom: 22px;
   box-shadow: var(--shadow);
-  color: var(--white);
   display: flex;
   height: 58px;
   justify-content: center;
+  overflow: hidden;
+  padding: 5px;
   position: fixed;
   right: 22px;
   width: 58px;
   z-index: 80;
+}
+
+.chat-toggle img {
+  height: 100%;
+  object-fit: contain;
+  width: 100%;
+}
+
+.chat-toggle:hover {
+  border-color: rgba(0, 109, 255, 0.35);
+  box-shadow: 0 20px 54px rgba(0, 80, 190, 0.25);
+  transform: translateY(-4px) scale(1.05);
 }
 
 .chatbox {
@@ -1342,6 +1355,21 @@ textarea {
   gap: 12px;
   justify-content: space-between;
   padding: 14px 16px;
+}
+
+.chat-brand {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+}
+
+.chat-brand > img {
+  background: var(--white);
+  border-radius: 12px;
+  height: 42px;
+  object-fit: contain;
+  padding: 3px;
+  width: 42px;
 }
 
 .chatbox header small {
